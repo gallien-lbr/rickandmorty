@@ -1,6 +1,16 @@
 version: '3'
 
 services:
+  php:
+    user: "$USER_ID:$GROUP_ID"
+    build:
+      context: ./docker
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      COMPOSER_HOME: /tmp/composer
 ###> doctrine/doctrine-bundle ###
   database:
     image: postgres:${POSTGRES_VERSION:-13}-alpine
