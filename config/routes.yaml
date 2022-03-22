@@ -7,6 +7,6 @@ index:
   methods: GET
 
 display_characters:
-  path: /displayCharacters
-  controller: App\Controller\PageController::displayCharacters
+  path: /character/{id}
+  controller: App\Controller\PageController::displayCharacter
   methods: GET

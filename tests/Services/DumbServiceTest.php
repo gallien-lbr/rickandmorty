@@ -15,7 +15,7 @@ class DumbServiceTest extends TestCase
         $priceHT = 6.99;
         $expected = $priceHT * DumbService::TVA_RATE;
 
-        // call SUT
+        // call SUT "real" method
         $actual = (new DumbService)->calcTva($priceHT);
 
         // assert

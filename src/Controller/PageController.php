@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Services\RMProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -11,8 +12,9 @@ class PageController extends AbstractController
         return new Response('<html><h1>Site index</h1></html>');
     }
 
-    public function displayCharacters():Response
+    public function displayCharacter(int $id, RMProvider $RMProvider):Response
     {
-        return $this->render('pages/characters.html.twig');
+        $character = $RMProvider->getCharacter($id);
+        return $this->render('pages/character.html.twig', ['character' => $character]);
     }
 }
