@@ -10,4 +10,9 @@ class PageController extends AbstractController
     public function index():Response{
         return new Response('<html><h1>Site index</h1></html>');
     }
+
+    public function displayCharacters():Response
+    {
+        return $this->render('pages/characters.html.twig');
+    }
 }

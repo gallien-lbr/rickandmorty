@@ -5,3 +5,8 @@ index:
   path: /
   controller: App\Controller\PageController::index
   methods: GET
+
+display_characters:
+  path: /displayCharacters
+  controller: App\Controller\PageController::displayCharacters
+  methods: GET
