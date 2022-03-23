@@ -8,5 +8,7 @@ ps:
 	./dc ps
 test:
 	${DOCKEREXECPHP} bin/phpunit
+coverage:
+	${DOCKEREXECPHP} bin/phpunit --coverage-html coverage
 php:
 	${DOCKEREXECPHP} sh

@@ -3,12 +3,11 @@
 
 namespace App\Services;
 
+use App\Enum\RMAPIEnum;
 use App\Model\Character;
 use \Psr\Http\Client\ClientInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 
@@ -30,9 +29,12 @@ class RMProvider
     public function getCharacter(int $id): ?Character
     {
         try {
-
             /** @var Response $response */
-            $response = $this->client->request('GET', \sprintf('%s%s/%s', $this->url, 'character', $id));
+            $response = $this->client->request('GET',
+                \sprintf('%s%s/%s',
+                    $this->url,
+                    RMAPIEnum::CHARACTER,
+                    $id));
 
             if (Response::HTTP_OK === $response->getStatusCode()) {
                 return $this->serializer->deserialize($response->getBody()->getContents(), Character::class, 'json');
@@ -41,7 +43,5 @@ class RMProvider
         } catch (\Exception $exception) {
             return null;
         }
-
-
     }
 }

@@ -11,6 +11,9 @@ class Character
     private string $species;
     private string $type;
     private string $genre;
+    private string $image;
+    private array $episode;
+
 
     /**
      * @return int
@@ -92,4 +95,35 @@ class Character
         $this->genre = $genre;
     }
 
+    /**
+     * @return string
+     */
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage(string $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return array
+     */
+    public function getEpisode(): array
+    {
+        return $this->episode;
+    }
+
+    /**
+     * @param array $episode
+     */
+    public function setEpisode(array $episode): void
+    {
+        $this->episode = $episode;
+    }
 }

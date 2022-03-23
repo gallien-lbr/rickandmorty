@@ -26,4 +26,6 @@ yarn-error.log
 .phpunit.result.cache
 /phpunit.xml
 bin/phpunit
+/coverage
 ###< symfony/phpunit-bridge ###
+
